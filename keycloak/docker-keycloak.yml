@@ -1,0 +1,17 @@
+version: "2.3"
+services:
+  keycloak-container:
+    image: jboss/keycloak:5.0.0
+    # command:
+      # -Djboss.socket.binding.port-offset=200
+    restart: always
+    environment:
+      KEYCLOAK_USER: Admin
+      KEYCLOAK_PASSWORD: Admin@#123
+    ports:
+      - 8080:8080
+    networks:
+      - admin_network
+networks:
+  admin_network:
+    driver: bridge 
